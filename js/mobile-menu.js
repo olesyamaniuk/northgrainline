@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtnRef = document.querySelector("[data-menu-button]");
-  const navListRef = document.querySelector(".class-navigation-list");
-  const headerRef = document.querySelector(".class-header");
-  const navigationRef = document.querySelector(".class-navigation");
+  const navListRef = document.querySelector(".a-t-navigation-list");
+  const headerRef = document.querySelector(".a-t-header");
+  const navigationRef = document.querySelector(".a-t-navigation");
 
   menuBtnRef.addEventListener("click", () => {
     menuBtnRef.classList.toggle("is-open");
@@ -11,45 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
     navigationRef.classList.toggle("is-open");
   });
 
-  document.querySelectorAll(".class-navigation-link").forEach((n) =>
+  document.querySelectorAll(".a-t-navigation-link").forEach((n) =>
     n.addEventListener("click", () => {
       navListRef.classList.remove("is-open");
       menuBtnRef.classList.remove("is-open");
       headerRef.classList.remove("is-open");
       navigationRef.classList.remove("is-open");
-    })
+    }),
   );
 });
 function toggleAnswer(element) {
   const answer = element.nextElementSibling;
-  const buttonImg = element.querySelector(".class-toggle-button img");
+  const buttonImg = element.querySelector(".a-t-toggle-button img");
 
   answer.classList.toggle("open");
 
   if (answer.classList.contains("open")) {
-    buttonImg.src = "/img/Minus.png";
     buttonImg.classList.add("rotated");
   } else {
-    buttonImg.src = "/img/Add.png";
     buttonImg.classList.remove("rotated");
   }
 }
-document.addEventListener("DOMContentLoaded", function () {
-  const popup = document.getElementById("cookie-popup");
-  const acceptButton = document.getElementById("accept-cookies");
-  const declineButton = document.getElementById("decline-cookies");
-
-  if (!localStorage.getItem("cookiesAccepted")) {
-    popup.style.display = "block";
-  }
-
-  acceptButton.onclick = function () {
-    localStorage.setItem("cookiesAccepted", "true");
-    popup.style.display = "none";
-  };
-
-  declineButton.onclick = function () {
-    localStorage.setItem("cookiesAccepted", "false");
-    popup.style.display = "none";
-  };
-});
